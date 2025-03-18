@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from os import name as os_name
 from os.path import isfile, isdir
 
 
@@ -32,8 +33,12 @@ def build_codes(source_path, target_path, scale):
 
     data = parse_config(source_path)
 
-    if not target_path.endswith('/'):
-        target_path = target_path + '/'
+    path_divider = '/'
+    if os_name == 'nt':
+        path_divider = '\\'
+
+    if not target_path.endswith(path_divider):
+        target_path = target_path + path_divider
 
     for entry in data:
         qrcode = segno.make_qr(entry)
