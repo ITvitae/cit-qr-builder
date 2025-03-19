@@ -17,6 +17,7 @@ Set up an environment, we'll use one named `env3`, and install `requirements.txt
 
 ```bash
 python3 -m venv env3
+source env3/bin/activate
 pip install -r requirements.txt
 ```
 
